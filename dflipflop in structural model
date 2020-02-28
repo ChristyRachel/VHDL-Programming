@@ -39,8 +39,3 @@ F2 : DflipflopIF port map(D=>Q0,CLK=>CLK,QOUT=>Q1);
 F3 : DflipflopIF port map(D=>Q1,CLK=>CLK,QOUT=>OUT1);
 
 end architecture Expression;
-![Screenshot (29)](https://user-images.githubusercontent.com/40349694/75514458-88fe0680-59c5-11ea-91e5-cd00364bbfd8.png)
-![Screenshot (24)](https://user-images.githubusercontent.com/40349694/75514479-90bdab00-59c5-11ea-8315-5d8a7701a14c.png)
-![Screenshot (13)](https://user-images.githubusercontent.com/40349694/75514500-96b38c00-59c5-11ea-919b-2603bdec7526.png)
-
-
