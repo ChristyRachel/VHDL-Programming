@@ -1,0 +1,19 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity halfsubtractor is
+    Port ( A : in  STD_LOGIC;
+           B : in  STD_LOGIC;
+           DIFFERENCE : out  STD_LOGIC;
+           BORROW : out  STD_LOGIC);
+end halfsubtractor;
+
+architecture Behavioral of halfsubtractor is
+
+begin
+
+DIFFERENCE<=(A XOR B);
+BORROW<=((NOT A) AND B);
+
+end Behavioral;
+
