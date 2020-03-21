@@ -1,0 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Delay is
+    Port ( DIN : in  STD_LOGIC;
+           DOUT : out  STD_LOGIC);
+end Delay;
+
+architecture Data of Delay is
+
+begin
+
+DOUT<=DIN AFTER 10ns;
+
+end Data;
+
