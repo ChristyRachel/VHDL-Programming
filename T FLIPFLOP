@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity TFF is
+    Port ( T : in  STD_LOGIC;
+           CLK : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           QBAR : out  STD_LOGIC);
+end TFF;
+
+architecture Behavioral of TFF is
+signal TEMPORARY : STD_LOGIC;
+begin
+
+	process(CLK)
+	begin
+
+		if (CLK='1' and CLK'EVENT) then
+				if (T='0') then
+					TEMPORARY <= TEMPORARY;
+				elsif (T='1') then
+					TEMPORARY <= not TEMPORARY;
+			end if;
+		end if;
+		Q <= TEMPORARY;
+		QBAR <= not TEMPORARY;
+	end process;
+end Behavioral;
