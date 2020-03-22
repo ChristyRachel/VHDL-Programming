@@ -1,0 +1,37 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee. std_logic_arith.all;
+use ieee. std_logic_unsigned.all;
+
+
+entity SRFF is
+    Port ( S : in  STD_LOGIC;
+           R : in  STD_LOGIC;
+           CLK : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           QBAR : out  STD_LOGIC);
+end SRFF;
+
+architecture Behavioral of SRFF is
+begin
+
+process (CLK)
+variable TEMPORARY : STD_LOGIC;
+begin
+
+	if (CLK='1' and CLK'EVENT) then
+
+			if (S='0' and R='0') then
+				TEMPORARY := TEMPORARY;
+			elsif  (S='0' and R='1') then
+				TEMPORARY := '0';
+			elsif  (S='1' and R='0') then
+				TEMPORARY := '1';
+			else
+				TEMPORARY := 'Z' ;
+			end if;
+	end if;
+	Q <= TEMPORARY;
+	QBAR <= not TEMPORARY;
+end process;
+end Behavioral;
