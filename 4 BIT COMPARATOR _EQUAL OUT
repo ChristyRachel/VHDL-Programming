@@ -1,0 +1,58 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity COMP1 is
+    Port ( A : in  STD_LOGIC;
+           B : in  STD_LOGIC;
+           GREATER0 : out  STD_LOGIC;
+			  EQUAL0 : out  STD_LOGIC;
+			  LESS0 : out  STD_LOGIC);
+end COMP1;
+
+architecture Behavioral of COMP1 is
+
+begin
+
+	GREATER0 <= (A AND (NOT B));
+	EQUAL0 <= (A XNOR B);
+	LESS0 <= ((NOT A) AND B);
+
+end Behavioral;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity COMP4 is
+    Port ( A0 : in  STD_LOGIC;
+           A1 : in  STD_LOGIC;
+           A2 : in  STD_LOGIC;
+           A3 : in  STD_LOGIC;
+           B0 : in  STD_LOGIC;
+           B1 : in  STD_LOGIC;
+           B2 : in  STD_LOGIC;
+           B3 : in  STD_LOGIC;
+           GREATER : out  STD_LOGIC;
+           EQUAL : out  STD_LOGIC;
+           LESSER : out  STD_LOGIC);
+end COMP4;
+
+architecture Behavioral of COMP4 is
+
+component COMP1 is
+	port ( A : in  STD_LOGIC;
+           B : in  STD_LOGIC;
+           GREATER0 : out  STD_LOGIC;
+			  EQUAL0 : out  STD_LOGIC;
+			  LESS0 : out  STD_LOGIC);
+end component COMP1;
+Signal EQUAL1,EQUAL2,EQUAL3,EQUAL4: STD_LOGIC;
+begin
+
+C1 : COMP1 port map(A=>A3,B=>B3,EQUAL0=>EQUAL1);
+C2 : COMP1 port map(A=>A2,B=>B2,EQUAL0=>EQUAL2);
+C3 : COMP1 port map(A=>A1,B=>B1,EQUAL0=>EQUAL3);
+C4 : COMP1 port map(A=>A0,B=>B0,EQUAL0=>EQUAL4);
+EQUAL <= (EQUAL1 and EQUAL2 and EQUAL3 and EQUAL4);
+
+end Behavioral;
+
