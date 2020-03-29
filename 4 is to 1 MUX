@@ -1,0 +1,20 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity MUX is
+    Port ( I : in  STD_LOGIC_VECTOR(3 DOWNTO 0);
+           S : in  STD_LOGIC_VECTOR(1 DOWNTO 0);
+           Y : out  STD_LOGIC);
+end MUX;
+
+architecture Behavioral of mux is
+begin
+	process(S,I)
+	begin
+		if S<="00" then Y<=I(0);
+		elsif S<="01" then Y<=I(1);
+		elsif S<="10" then Y<=I(2);
+		elsif S<="11" then Y<=I(3);
+		end if;
+	end process;
+end Behavioral;
