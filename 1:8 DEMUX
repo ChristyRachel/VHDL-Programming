@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity DEMUX is
+    Port ( I : in  STD_LOGIC;
+           S : in  STD_LOGIC_VECTOR(2 DOWNTO 0);
+           O : out  STD_LOGIC_VECTOR(7 DOWNTO 0));
+end DEMUX;
+
+architecture Behavioral of DEMUX is
+begin
+process(I,S)
+begin
+	if S = "000" then
+	O(0)<=I;
+	elsif S = "001" then
+	O(1)<=I;
+	elsif S = "010" then
+	O(2)<=I;
+	elsif S = "011" then
+	O(3)<=I;
+	elsif S = "100" then
+	O(4)<=I;
+	elsif S = "101" then
+	O(5)<=I;
+	elsif S = "110" then
+	O(6)<=I;
+	elsif S = "111" then
+	O(7)<=I;
+	end if;
+end process;	
+end Behavioral;
+
