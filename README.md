@@ -1,3 +1,3 @@
 # VHDL-Programming
 
-VHDL program which runs in Xilinx ISE 
+VHDL program which runs in Xilinx ISE.
